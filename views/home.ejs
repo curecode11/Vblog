@@ -1,0 +1,18 @@
+<%- include("partials/header.ejs") %>
+<ul>
+
+    <%  posts.forEach((post, index) => { %>
+        <li>
+            <h2><a href="/post/<%= index %>"><%= post.title %></a></h2>
+            <p><%= post.content.substring(0, 100) %>...</p>
+            <form action="/del/<%= index %>" method="post" style="display: inline;">
+                <input type="submit" value="delete">
+            </form>
+            <form action="/edit/<%= index  %>" method="post" style="display: inline;">
+                <input type="submit" value="edit">
+            </form>
+        </li>
+        <% }) %>
+        
+</ul>
+<%- include("partials/footer.ejs") %>
